@@ -131,7 +131,7 @@ function App() {
     },
   ];
 
-  const [city,setCity] = useState("New York")
+  const [city,setCity] = useState({ id: 1, title: "New York"})
 
   const handleClick = function(city){
     setCity(city)
@@ -144,7 +144,7 @@ function App() {
         <h2>Perfect destination</h2>
         <h1>Trending destinations</h1>
         <Buttons listCateTour={listCateTour} handleClick={handleClick} city={city}/>
-        <Cards listTour={listTour.filter((tour)=> tour.category == city)} />
+        <Cards listTour={listTour.filter((tour)=> tour.category === city.title)} />
       </div>
     </div>
   );

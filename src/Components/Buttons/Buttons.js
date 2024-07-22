@@ -11,12 +11,12 @@ function Buttons(props) {
                     {listCateTour.map((tour, index) => (
                         <Col key={index}>
                             <Button
-                                onClick={() => handleClick(tour.title)}
+                                onClick={() => handleClick({id: tour.id, title: tour.title})}
                                 style={{
                                     padding: "5px 10px",
                                     height: "40px",
-                                    backgroundColor: tour.title === city ? "var(--primary-color)" : "#fff",
-                                    color: tour.title === city ? "#fff" : "#000",
+                                    backgroundColor: tour.id === city.id ? "var(--primary-color)" : "#fff",
+                                    color: tour.id === city.id ? "#fff" : "#000",
                                     fontSize: "18px",
                                     fontWeight: "500",
                                     border: "none",
