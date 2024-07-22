@@ -25,6 +25,9 @@
     font-size: 1.5rem;
 }
 
+#cards{
+    transition: 1s;
+}
 
 .fa-magnifying-glass-location{
     margin-right: 10px;
