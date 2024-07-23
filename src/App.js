@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import './App.css';
 import Buttons from "./Components/Buttons/Buttons"
 import Cards from './Components/Cards/Cards';
@@ -133,9 +133,10 @@ function App() {
 
   const [city,setCity] = useState("New York")
 
-  const handleClick = function(city){
+  const handleClick = useCallback((city) => {
     setCity(city)
-  }
+  },[])
+
   
 
   return (
@@ -143,7 +144,7 @@ function App() {
       <div className='container'>
         <h2>Perfect destination</h2>
         <h1>Trending destinations</h1>
-        <Buttons listCateTour={listCateTour} handleClick={handleClick} city={city}/>
+        <Buttons list={listCateTour} handleClick={handleClick} city={city}/>
         <Cards listTour={listTour.filter((tour)=> tour.category == city)} />
       </div>
     </div>
