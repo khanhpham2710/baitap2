@@ -1,12 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useState } from 'react';
 import './App.css';
-import axios from "axios"
+import Cards from './Cards/Cards';
+import Buttons from './Buttons/Buttons';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Students from './Components/Students/Students';
-import Students2 from "./Components/Students/Students"
 
-
-function App() {
+function Todo() {
   const listCateTour = [
     { id: 1, title: "New York" },
     { id: 2, title: "London" },
@@ -133,22 +131,24 @@ function App() {
     },
   ];
 
-  const [city,setCity] = useState({ id: 1, title: "New York"})
+  const [city,setCity] = useState("New York")
 
-  const handleClick = function(city){
+  const handleClick = useCallback((city) => {
     setCity(city)
-  }
+  },[])
+
   
 
-
-function App() {
   return (
-    <div>
-        <Students />
-
-   
+    <div id="trending">
+      <div className='container'>
+        <h2>Perfect destination</h2>
+        <h1>Trending destinations</h1>
+        <Buttons list={listCateTour} handleClick={handleClick} city={city}/>
+        <Cards listTour={listTour.filter((tour)=> tour.category == city)} />
+      </div>
     </div>
-  )
+  );
 }
 
-export default App;
+export default Todo;

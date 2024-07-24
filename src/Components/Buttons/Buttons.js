@@ -2,13 +2,13 @@ import React from 'react';
 import { Button, Container, Row, Col } from 'reactstrap';
 
 function Buttons(props) {
-    const { listCateTour, handleClick, city } = props;
+    const { list, handleClick, city } = props;
 
     return (
         <div>
             <Container style={{ width: "50%", margin: "20px auto" }}>
                 <Row md="4">
-                    {listCateTour.map((tour, index) => (
+                    {list.map((tour, index) => (
                         <Col key={index}>
                             <Button
                                 onClick={() => handleClick({id: tour.id, title: tour.title})}
